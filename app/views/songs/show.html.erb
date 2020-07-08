@@ -1,3 +1,15 @@
 <h1>Songs#show</h1>
 
-Title: <%= @song.title %>
+Title: <%= @song.title %><br>
+<span class=song-artist>Artist: <%= @song.try(:artist).try(:name) %></span><br>
+  <span class=song-genre>Genre: <%= @song.try(:genre).try(:name) %></span><br>
+  <ul class=song-notes>
+    <% @song.try(:notes).try :each do |note| %>
+      <li class=song-note><%= note.content %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Edit Song", edit_song_path(@song) %><br>
+
+  <%= button_to "Delete Song", song_path(@song), method: :delete %>
+  <%= link_to "All Songs", songs_path %>
