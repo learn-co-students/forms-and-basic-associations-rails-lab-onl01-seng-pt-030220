@@ -27,7 +27,8 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-
+    @song.note_contents = []
+    ####problem. Update adds all of the previously withstanding notes. so there are lots of duplicates
     @song.update(song_params)
 
     if @song.save
