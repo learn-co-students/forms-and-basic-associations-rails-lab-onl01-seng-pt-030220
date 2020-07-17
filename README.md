@@ -1,7 +1,5 @@
 # Forms And Basic Associations Rails Lab
 
-# San Dimas High School Football Rules!
-
 ## Objectives
 
 1. Practice defining associations
