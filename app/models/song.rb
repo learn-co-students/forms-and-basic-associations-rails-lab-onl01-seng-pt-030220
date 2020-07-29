@@ -9,8 +9,8 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist ? self.artist.name : nil
-    # self.artist && self.artist.name
+    # self.artist ? self.artist.name : nil
+    self.artist && self.artist.name
   end
 
   # def notes=(notes)
@@ -20,10 +20,10 @@ class Song < ActiveRecord::Base
   #   end
   # end
 
-  def notes=(notes)
-    notes.each do |note|
-      unless note == ""
-        self.notes.build(content: note)
+  def song_notes=(song_notes)
+    song_notes.each do |song_note|
+      unless song_note == ""
+        self.notes.build(content: song_note)
       end
     end
   end
